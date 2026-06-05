@@ -1,14 +1,6 @@
 /* ==========================================================================
-   GLOBAL RESET & VECTOR VARIABLE SETUP
+   GLOBAL SETTINGS & RESET
    ========================================================================== */
-:root {
-    --bg-color: #050508;       /* Deep arcade cabinet black */
-    --accent-blue: #4d4dff;    /* Custom arcade neon blue */
-    --accent-dim: #1a1a66;     /* Low-intensity blue for structural sub-lines */
-    --text-main: #f0f4ff;      /* High-readability crisp off-white with blue tint */
-    --font-mono: 'Courier New', Courier, monospace;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,152 +8,243 @@
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    font-family: var(--font-mono);
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 18px;
     line-height: 1.6;
-    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .nav-logo, .nav-item {
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* ==========================================================================
+   PERSISTENT NAVIGATION BAR
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    border-bottom: 4px solid #333333;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    color: #ff0055;
+    font-size: 18px;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-item {
+    color: #ffffff;
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.1s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: #00ffcc;
+}
+
+/* ==========================================================================
+   LAYOUT UTILITIES
+   ========================================================================== */
+.centered-column {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 2rem;
-}
-
-/* Master Layout Wrapper */
-.container {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
+    justify-content: center;
     text-align: center;
+    width: 100%;
+    max-width: 800px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* ==========================================================================
-   GEOMETRIC SHAPES & CONTAINERS (Vector Scope Aesthetic)
+   HERO & BACKGROUND CONFIGURATION
    ========================================================================== */
-
-/* Chamfered/Angled Corner Asset Frame using CSS Clip-path */
-.chamfer-frame {
+.hero-container {
     position: relative;
-    background-color: #0c0e12;
-    clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
-    padding: 2px;
-}
-
-/* Outer layout accent line mirroring the clip-path border */
-.hero-wrapper {
-    width: 100%;
-    margin-bottom: 3rem;
-    padding: 4px;
-    border: 1px solid var(--accent-dim);
-    position: relative;
-}
-
-/* Crosshair corner brackets for vector radar/scope vibe */
-.hero-wrapper::before, .hero-wrapper::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--accent-blue);
-    pointer-events: none;
-}
-.hero-wrapper::before { top: -5px; left: -5px; border-right: none; border-bottom: none; }
-.hero-wrapper::after { bottom: -5px; right: -5px; border-left: none; border-top: none; }
-
-.hero-placeholder {
-    width: 100%;
-    height: 420px;
-    background: #090b0e;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: var(--accent-blue);
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 2rem;
-    clip-path: polygon(14px 0%, 100% 0%, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0% 100%, 0% 14px);
-    border: 1px dashed rgba(77, 77, 255, 0.2);
+    justify-content: center;
+    background-image: url('DoomensteinDemo.png'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 80px;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 42px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    color: #aaaaaa;
+    margin-bottom: 35px;
+    max-width: 600px;
+}
+
+.arcade-divider {
+    width: 100%;
+    border: none;
+    height: 4px;
+    background-color: #333333;
+    margin: 40px 0;
 }
 
 /* ==========================================================================
-   TYPOGRAPHY BLOCK
+   RETRO ARCADE BUTTONS
    ========================================================================== */
-.title-group {
-    margin-bottom: 3.5rem;
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    padding: 12px 24px;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.15s ease;
 }
 
-.main-title {
-    font-size: 3rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    color: var(--text-main);
-    margin-bottom: 0.5rem;
+.btn-large {
+    font-size: 18px;
+    padding: 18px 36px;
+    width: 100%;
+    max-width: 400px;
 }
 
-.role-subtitle {
-    font-size: 1.25rem;
-    color: var(--accent-blue);
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-weight: bold;
+/* Color Variant: Cyan */
+.btn-cyan {
+    color: #00ffcc;
+    border: 4px solid #00ffcc;
+    box-shadow: 0 4px 0 #009977;
+}
+.btn-cyan:hover {
+    background-color: #00ffcc;
+    color: #000000;
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+/* Color Variant: Green */
+.btn-green {
+    color: #33ff00;
+    border: 4px solid #33ff00;
+    box-shadow: 0 4px 0 #22aa00;
+}
+.btn-green:hover {
+    background-color: #33ff00;
+    color: #000000;
+    box-shadow: 0 0 15px #33ff00;
+}
+
+/* Color Variant: Red */
+.btn-red {
+    color: #ff0055;
+    border: 4px solid #ff0055;
+    box-shadow: 0 4px 0 #aa0033;
+}
+.btn-red:hover {
+    background-color: #ff0055;
+    color: #000000;
+    box-shadow: 0 0 15px #ff0055;
+}
+
+.btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
 }
 
 /* ==========================================================================
-   PIXELATED ROUNDED BUTTONS & ROUTER NAVIGATION
+   INDEX MENU NAVIGATION
    ========================================================================== */
-.nav-menu {
+.social-links {
     display: flex;
-    gap: 1.75rem;
+    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-/* Pixelated rounded appearance:
-   Uses an 8px border-radius paired with box-shadow steps instead of smooth blurs
-   to emulate classic jagged, stepped CRT/bitmap rendering styles.
-*/
-.btn-vector {
-    text-decoration: none;
-    color: var(--accent-blue);
-    background-color: transparent;
-    font-family: var(--font-mono);
-    font-size: 1.05rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 0.75rem 2.25rem;
-    cursor: pointer;
-    position: relative;
-    border: 4px solid var(--accent-blue);
-    border-radius: 8px;
-    transition: all 0.1s ease-in-out;
+.menu-navigation {
+    width: 100%;
 }
 
-/* Inverted pixel block interactive states */
-.btn-vector:hover, .btn-vector:focus {
-    background-color: var(--accent-blue);
-    color: var(--bg-color);
-    outline: none;
+.menu-title {
+    font-size: 16px;
+    color: #ffff00;
+    margin-bottom: 25px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 8px rgba(255, 255, 0, 0.5);
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
 }
 
 /* ==========================================================================
-   FUTURE-PROOF LAYOUT STACK FOR SUBPAGES (Scalable Architecture)
+   MEDIA QUERIES
    ========================================================================== */
-.vertical-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-top: 2.5rem;
-    text-align: left;
-}
-
-.project-container {
-    background-color: #0c0e12;
-    border: 1px solid var(--accent-dim);
-    outline: 1px solid rgba(77, 77, 255, 0.1);
-    outline-offset: 4px;
-    padding: 2.5rem;
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-title {
+        font-size: 28px;
+    }
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    .btn-large {
+        font-size: 14px;
+        padding: 14px 28px;
+    }
 }

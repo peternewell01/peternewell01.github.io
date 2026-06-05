@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Projects | Peter Newell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-wrapper {
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+
+        .page-title {
+            color: #ff0055;
+            font-size: 28px;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 0, 85, 0.3);
+        }
+
+        .project-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            width: 100%;
+        }
+
+        .project-card {
+            width: 100%;
+            background-color: #050505;
+            border: 4px solid #333333;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 6px 0 #111111;
+        }
+
+        .project-card:hover {
+            border-color: #00ffcc;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+        }
+
+        .project-header {
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #333333;
+            padding-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .project-role {
+            color: #ffff00;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .project-body {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .media-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #111111;
+            border: 2px solid #222222;
+            border-radius: 4px;
+        }
+
+        .media-container iframe,
+        .media-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            object-fit: cover;
+        }
+
+        .project-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tech-spec-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            background-color: #111111;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #33ff00;
+        }
+
+        .tech-spec-list li {
+            font-size: 16px;
+            color: #cccccc;
+        }
+
+        .tech-spec-list strong {
+            color: #33ff00;
+        }
+
+        .bullet-points {
+            padding-left: 20px;
+        }
+
+        .bullet-points li {
+            margin-bottom: 10px;
+            color: #e0e0e0;
+            font-size: 18px;
+        }
+
+        .bullet-points li::marker {
+            color: #ff0055;
+        }
+
+        .project-actions {
+            margin-top: 10px;
+        }
+
+        @media (min-width: 900px) {
+            .project-body {
+                flex-direction: row;
+            }
+            .media-container {
+                width: 45%;
+                padding-top: 25.31%; /* Keeps 16:9 for 45% width */
+                flex-shrink: 0;
+            }
+            .project-details {
+                width: 55%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 20px;
+                margin-bottom: 30px;
+            }
+            .project-card {
+                padding: 20px;
+            }
+            .project-title {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">P.NEWELL</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-item">HOME</a>
+                <a href="tgp.html" class="nav-item active">TEAM PROJECTS</a>
+                <a href="personal.html" class="nav-item">PERSONAL</a>
+                <a href="about.html" class="nav-item">ABOUT ME</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-wrapper centered-column">
+        <h1 class="page-title">TEAM PRODUCTIONS</h1>
+
+        <div class="project-stack">
+
+            <article class="project-card">
+                <div class="project-header">
+                    <h2 class="project-title">SPLITTER CELL <span class="project-role">// PROGRAMMER</span></h2>
+                </div>
+                <div class="project-body">
+                    <div class="media-container">
+                        <iframe src="https://www.youtube.com/embed/bq6jl5rvG6Y" title="Splitter Cell Gameplay" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-details">
+                        <ul class="tech-spec-list">
+                            <li><strong>Engine:</strong> Unity Engine</li>
+                            <li><strong>Language:</strong> C#</li>
+                            <li><strong>Team Size:</strong> 5 Developers</li>
+                            <li><strong>Duration:</strong> 3.5 Months</li>
+                        </ul>
+                        <ul class="bullet-points">
+                            <li>Created comprehensive 2D platformer movement system with supplementary bounce pad system for engaging platformer gameplay.</li>
+                            <li>Implemented gameplay systems using Perforce/p4v version control and assisted with resolving merge conflicts and project rollbacks</li>
+                            <li>Collaborated with level designers and artist to coordinate tasks, solve problems, and produce 15 levels of gameplay.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-header">
+                    <h2 class="project-title">HAMSTERBALLIN' <span class="project-role">// GAMEPLAY & RACE LOGIC PROGRAMMER</span></h2>
+                </div>
+                <div class="project-body">
+                    <div class="media-container">
+                        <iframe src="https://www.youtube.com/embed/Dwuy4GoxpQs" title="Hamsterballin' Gameplay" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                    <div class="project-details">
+                        <ul class="tech-spec-list">
+                            <li><strong>Engine:</strong> Unreal Engine 5.7</li>
+                            <li><strong>Language:</strong> Blueprint</li>
+                            <li><strong>Team Size:</strong> 43 Developers</li>
+                            <li><strong>Duration:</strong> 3 Months</li>
+                        </ul>
+                        <ul class="bullet-points">
+                            <li>Programmed large scale race logic system to guarantee the validity of race laps during gameplay, perform accurate respawns, and implement a grand prix game mode.</li>
+                            <li>Worked with multiple other disciplines to make sure everyone was informed about the tasks being performed, and to ensure implementations held up to any and all requirements.</li>
+                            <li>Implemented race powerup system and large portions of in-game HUD</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+</body>
+</html>

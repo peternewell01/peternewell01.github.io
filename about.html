@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Peter Newell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-wrapper {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .page-title {
+            color: #ffaa00;
+            font-size: 28px;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 170, 0, 0.3);
+            text-align: center;
+        }
+
+        .two-column-layout {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 40px;
+            width: 100%;
+        }
+
+        /* LEFT COLUMN: BIO & DOCUMENTS */
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .bio-panel {
+            background-color: #050505;
+            border: 4px solid #333333;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 6px 0 #111111;
+        }
+
+        .bio-panel:hover {
+            border-color: #ffaa00;
+            box-shadow: 0 0 15px rgba(255, 170, 0, 0.2);
+        }
+
+        .bio-header {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            color: #ffaa00;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .bio-text {
+            font-size: 18px;
+            color: #e0e0e0;
+        }
+
+        .document-subsection {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .subsection-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .resume-viewer {
+            width: 100%;
+            height: 500px;
+            border: 4px solid #333333;
+            border-radius: 8px;
+            background-color: #111111;
+            box-shadow: 0 6px 0 #111111;
+        }
+
+        .resume-viewer:hover {
+            border-color: #ff0055;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+        }
+
+        .action-container {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        /* RIGHT COLUMN: PROFILE IMAGE */
+        .right-column {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 4px solid #333333;
+            border-radius: 8px;
+            box-shadow: 0 6px 0 #111111;
+            background-color: #111111;
+        }
+
+        .profile-image:hover {
+            border-color: #00ffcc;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+        }
+
+        /* DESKTOP RESPONSIVENESS */
+        @media (min-width: 900px) {
+            .page-title {
+                text-align: left;
+            }
+            .two-column-layout {
+                flex-direction: row;
+                gap: 50px;
+            }
+            .left-column {
+                width: 65%;
+            }
+            .right-column {
+                width: 35%;
+                position: sticky;
+                top: 120px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+            .bio-panel {
+                padding: 20px;
+            }
+            .resume-viewer {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">P.NEWELL</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-item">HOME</a>
+                <a href="tgp.html" class="nav-item">TEAM PROJECTS</a>
+                <a href="personal.html" class="nav-item">PERSONAL</a>
+                <a href="about.html" class="nav-item active">ABOUT ME</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <h1 class="page-title">PLAYER PROFILE</h1>
+
+        <div class="two-column-layout">
+            
+            <main class="left-column">
+                
+                <section class="bio-panel">
+                    <h2 class="bio-header">Status Report</h2>
+                    <p class="bio-text">
+                        I am a highly focused C++ Game Programmer and Software Developer based in Texas. Driven by low-level systems architecture and the challenges of core engine computation, I specialize in engineering performance-critical software blocks from scratch. My technical toolkit centers around direct memory management, mathematical libraries, hardware constraints, and robust execution architecture. Whether building modular subsystem components inside teams or constructing independent runtime engines line-by-line, I aim to deploy highly optimized, clean code configurations ready for deployment within studio pipelines.
+                    </p>
+                </section>
+
+                <section class="document-subsection">
+                    <h3 class="subsection-title">> PRIMARY_DATA: RESUME</h3>
+                    <iframe class="resume-viewer" src="Peter_Newell_Resume.pdf" title="Peter Newell Resume Viewer"></iframe>
+                    <div class="action-container">
+                        <a href="Peter_Newell_Resume.pdf" download class="btn btn-red btn-large">
+                            DOWNLOAD RESUME
+                        </a>
+                    </div>
+                </section>
+
+                <section class="document-subsection">
+                    <h3 class="subsection-title">> SUPPLEMENTAL_DATA: COVER LETTER</h3>
+                    <iframe class="resume-viewer" src="Peter_Newell_CoverLetter.pdf" title="Peter Newell Cover Letter Viewer"></iframe>
+                    <div class="action-container">
+                        <a href="Peter_Newell_CoverLetter.pdf" download class="btn btn-cyan btn-large">
+                            DOWNLOAD COVER LETTER
+                        </a>
+                    </div>
+                </section>
+
+            </main>
+
+            <aside class="right-column">
+                <div class="image-container">
+                    <img class="profile-image" src="nohighblock.jpeg" alt="Peter Newell Profile Picture">
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+</body>
+</html>
