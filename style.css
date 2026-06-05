@@ -1,0 +1,140 @@
+/* ==========================================================================
+   GLOBAL STYLES & RESET
+   ========================================================================== */
+:root {
+    --bg-color: #0a0a0c;       /* Deep slate/black cabinet style background */
+    --accent-color: #00ff66;   /* Sharp Cyber Green vector color */
+    --accent-dim: #008033;     /* Dimmed version for subtle borders */
+    --text-main: #f0f4f8;      /* Highly legible crisp off-white for prose */
+    --text-muted: #7a889b;     /* Muted gray for utility text */
+    --font-stack: 'Courier New', Courier, monospace; /* Clean monospace look */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Base layout wrapper */
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ==========================================================================
+   HERO CONTAINER
+   ========================================================================== */
+.hero-placeholder {
+    width: 100%;
+    height: 450px;
+    background-color: #111318;
+    border: 2px dashed var(--accent-dim);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Subtle retro layout accent frame inside the image holder */
+.hero-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid rgba(0, 255, 102, 0.1);
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+.title-group {
+    margin-bottom: 3.5rem;
+}
+
+.main-title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.role-subtitle {
+    font-size: 1.35rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   NAVIGATION & NAVIGATION INTERACTIVE STATES
+   ========================================================================== */
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    padding: 0.85rem 2.25rem;
+    font-family: var(--font-stack);
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+/* Classic vector screen glow simulation on hover */
+.btn:hover, .btn:focus {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 14px var(--accent-color);
+    outline: none;
+}
+
+/* ==========================================================================
+   SCALABLE ARCHITECTURE CLASSES FOR FUTURE SUBPAGES
+   ========================================================================== */
+.project-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.project-item {
+    border: 2px solid var(--accent-dim);
+    padding: 2.5rem;
+    background-color: #111318;
+}
