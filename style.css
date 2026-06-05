@@ -3,9 +3,9 @@
    ========================================================================== */
 :root {
     --bg-color: #050508;       /* Deep arcade cabinet black */
-    --accent-green: #00ff66;   /* Sharp neon cyber green vector line */
-    --accent-dim: #004d1f;     /* Low-intensity green for structural sub-lines */
-    --text-main: #f0f8f4;      /* High-readability crisp off-white */
+    --accent-blue: #4d4dff;    /* Custom arcade neon blue */
+    --accent-dim: #1a1a66;     /* Low-intensity blue for structural sub-lines */
+    --text-main: #f0f4ff;      /* High-readability crisp off-white with blue tint */
     --font-mono: 'Courier New', Courier, monospace;
 }
 
@@ -44,9 +44,8 @@ body {
 .chamfer-frame {
     position: relative;
     background-color: #0c0e12;
-    /* Cuts 15px off the top-left and bottom-right corners geometrically */
     clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
-    padding: 2px; /* Acts as the boundary width for the pseudo-border below */
+    padding: 2px;
 }
 
 /* Outer layout accent line mirroring the clip-path border */
@@ -64,7 +63,7 @@ body {
     position: absolute;
     width: 20px;
     height: 20px;
-    border: 2px solid var(--accent-green);
+    border: 2px solid var(--accent-blue);
     pointer-events: none;
 }
 .hero-wrapper::before { top: -5px; left: -5px; border-right: none; border-bottom: none; }
@@ -77,13 +76,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--accent-green);
+    color: var(--accent-blue);
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
     padding: 2rem;
     clip-path: polygon(14px 0%, 100% 0%, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0% 100%, 0% 14px);
-    border: 1px dashed rgba(0, 255, 102, 0.2);
+    border: 1px dashed rgba(77, 77, 255, 0.2);
 }
 
 /* ==========================================================================
@@ -104,14 +103,14 @@ body {
 
 .role-subtitle {
     font-size: 1.25rem;
-    color: var(--accent-green);
+    color: var(--accent-blue);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: bold;
 }
 
 /* ==========================================================================
-   GEOMETRIC BUTTONS & ROUTER NAVIGATION
+   PIXELATED ROUNDED BUTTONS & ROUTER NAVIGATION
    ========================================================================== */
 .nav-menu {
     display: flex;
@@ -120,10 +119,13 @@ body {
     flex-wrap: wrap;
 }
 
-/* Chamfered structural links */
+/* Pixelated rounded appearance:
+   Uses an 8px border-radius paired with box-shadow steps instead of smooth blurs
+   to emulate classic jagged, stepped CRT/bitmap rendering styles.
+*/
 .btn-vector {
     text-decoration: none;
-    color: var(--accent-green);
+    color: var(--accent-blue);
     background-color: transparent;
     font-family: var(--font-mono);
     font-size: 1.05rem;
@@ -133,19 +135,16 @@ body {
     padding: 0.75rem 2.25rem;
     cursor: pointer;
     position: relative;
-    /* Clean double line vector edge simulation */
-    border: 1px solid var(--accent-dim);
-    outline: 1px solid var(--accent-green);
-    outline-offset: -4px;
+    border: 4px solid var(--accent-blue);
+    border-radius: 8px;
     transition: all 0.1s ease-in-out;
 }
 
-/* Tactical sharp inverted interactive states */
+/* Inverted pixel block interactive states */
 .btn-vector:hover, .btn-vector:focus {
-    background-color: var(--accent-green);
+    background-color: var(--accent-blue);
     color: var(--bg-color);
-    outline: 1px solid var(--bg-color);
-    outline-offset: -4px;
+    outline: none;
 }
 
 /* ==========================================================================
@@ -162,7 +161,7 @@ body {
 .project-container {
     background-color: #0c0e12;
     border: 1px solid var(--accent-dim);
-    outline: 1px solid rgba(0, 255, 102, 0.1);
+    outline: 1px solid rgba(77, 77, 255, 0.1);
     outline-offset: 4px;
     padding: 2.5rem;
 }
