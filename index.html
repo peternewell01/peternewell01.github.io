@@ -100,7 +100,6 @@
             .profile-text-side {
                 text-align: center;
                 width: 100%;
-                /* Explicitly places the text content second in the stack */
                 order: 2; 
             }
             .profile-text-side .hero-title,
@@ -113,12 +112,15 @@
             .profile-image-side {
                 justify-content: center;
                 width: 100%;
-                /* Explicitly places the image container first in the stack */
                 order: 1; 
             }
             .custom-image-box {
                 max-width: 340px;
                 height: 400px;
+            }
+            /* Targets the image alignment ONLY on mobile viewports */
+            .profile-img {
+                object-position: top;
             }
         }
     </style>
