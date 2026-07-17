@@ -94,7 +94,7 @@
         @media (max-width: 768px) {
             .profile-section-wrapper {
                 flex-direction: column;
-                gap: 20px;
+                gap: 30px;
                 padding: 0 15px;
             }
             .profile-text-side {
@@ -115,12 +115,10 @@
                 order: 1; 
             }
             .custom-image-box {
-                max-width: 260px;   /* Shrinks width down nicely for mobile displays */
-                height: auto;       /* Removes locked height restriction */
-                aspect-ratio: 4 / 5; /* Maintains an appropriate retro vertical framing ratio */
-            }
-            .profile-img {
-                object-position: center; /* Centers the graphic safely inside the shorter frame */
+                max-width: 340px;
+                height: 400px;
+                /* Adds dead space explicitly at the top of the box layout on mobile */
+                padding-top: 60px; 
             }
         }
     </style>
