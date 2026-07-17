@@ -63,9 +63,10 @@
             justify-content: flex-start;
         }
 
-        /* Styled box placeholder for the image */
+        /* Fluid box container for the image */
         .custom-image-box {
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             height: 480px;
             border: 4px solid #00f0ff;
             background-color: rgba(0, 0, 0, 0.6);
@@ -78,16 +79,27 @@
             letter-spacing: 1px;
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
             box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* Properly handles the inner image proportions */
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         /* Mobile fallback to switch columns back to stacked view */
         @media (max-width: 768px) {
             .profile-section-wrapper {
                 flex-direction: column;
-                gap: 20px;
+                gap: 30px;
+                padding: 0 15px;
             }
             .profile-text-side {
                 text-align: center;
+                width: 100%;
             }
             .profile-text-side .hero-title,
             .profile-text-side .hero-subtitle {
@@ -98,6 +110,11 @@
             }
             .profile-image-side {
                 justify-content: center;
+                width: 100%;
+            }
+            .custom-image-box {
+                max-width: 340px;
+                height: 400px; /* Scales down the height slightly for smaller screens */
             }
         }
     </style>
@@ -141,7 +158,7 @@
 
                 <div class="profile-image-side">
                     <div class="custom-image-box">
-                        <img src="NiceCandid.png" class="profile-image-side" width="200" height="470"/>
+                        <img src="NiceCandid.png" class="profile-img" alt="Peter Newell Portfolio Picture"/>
                     </div>
                 </div>
 
