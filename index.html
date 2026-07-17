@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +7,106 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
+    
+    <style>
+        /* CSS to support the layout shift without altering the main stylesheet */
+        .profile-section-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .profile-text-side {
+            text-align: right;
+            flex: 1;
+        }
+
+        /* Force right alignment for text on the left side */
+        .profile-text-side .hero-title,
+        .profile-text-side .hero-subtitle {
+            text-align: right !important;
+        }
+
+        /* Adjust social links alignment to match the right-justified text */
+        .profile-text-side .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 15px;
+        }
+
+        /* Enforce social icon sizing to fill the box without swelling the box itself */
+        .profile-text-side .social-links .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 75px;   
+            height: 45px;  
+            padding: 0;    
+            box-sizing: border-box;
+        }
+
+        .profile-text-side .social-links .btn i {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .profile-image-side {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        /* Styled box placeholder for the image */
+        .custom-image-box {
+            width: 400px;
+            height: 480px;
+            border: 4px solid #00f0ff;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Share Tech Mono', monospace;
+            color: #00f0ff;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            box-sizing: border-box;
+        }
+
+        /* Mobile fallback to switch columns back to stacked view */
+        @media (max-width: 768px) {
+            .profile-section-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .profile-text-side {
+                text-align: center;
+            }
+            .profile-text-side .hero-title,
+            .profile-text-side .hero-subtitle {
+                text-align: center !important;
+            }
+            .profile-text-side .social-links {
+                justify-content: center;
+            }
+            .profile-image-side {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">P.NEWELL</a>
+            <a href="index.html" class="nav-logo">PETER NEWELL</a>
             <div class="nav-links">
                 <a href="index.html" class="nav-item active">HOME</a>
                 <a href="tgp.html" class="nav-item">TEAM PROJECTS</a>
@@ -31,12 +123,28 @@
 
         <main class="hero-content centered-column">
     
-            <h1 class="hero-title">PETER NEWELL</h1>
-            <p class="hero-subtitle">Game Programmer and Software Developer from Texas</p>
-            
-            <div class="social-links">
-                <a href="https://github.com/peternewell01" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">GITHUB</a>
-                <a href="https://www.linkedin.com/in/peter-newell-42484a204" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">LINKEDIN</a>
+            <div class="profile-section-wrapper">
+                
+                <div class="profile-text-side">
+                    <h1 class="hero-title">PETER NEWELL</h1>
+                    <p class="hero-subtitle">Game Programmer and Software Developer from Texas</p>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/peternewell01" target="_blank" rel="noopener noreferrer" class="btn btn-cyan" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/peter-newell-42484a204" target="_blank" rel="noopener noreferrer" class="btn btn-cyan" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="profile-image-side">
+                    <div class="custom-image-box">
+                        <img src="NiceCandid.png" class="profile-image-side" width="200" height="470"/>
+                    </div>
+                </div>
+
             </div>
 
             <hr class="arcade-divider">
